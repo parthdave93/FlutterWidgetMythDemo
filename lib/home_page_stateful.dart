@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class MyHomePageStateful extends StatefulWidget {
-  String title;
+  final String title;
 
-  MyHomePageStateful({@required this.title});
+  const MyHomePageStateful({required this.title});
 
   @override
   _MyHomePageState createState() => _MyHomePageState();

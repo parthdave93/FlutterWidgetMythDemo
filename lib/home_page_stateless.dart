@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 class MyHomePageStateless extends StatelessWidget {
-  String title;
+  final String title;
 
-  MyHomePageStateless({@required this.title});
+  MyHomePageStateless({required this.title});
 
-  MyHomePageElement state;
+  MyHomePageElement? state;
   int index = 0;
 
   @override
@@ -18,7 +18,7 @@ class MyHomePageStateless extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           index++;
-          state.increment();
+          state?.increment();
         },
       ),
     );
@@ -29,7 +29,7 @@ class MyHomePageStateless extends StatelessWidget {
     if (state == null)
       state = MyHomePageElement(this);
 
-    return state;
+    return state!;
   }
 }
 
@@ -37,7 +37,7 @@ class MyHomePageElement extends StatelessElement {
   MyHomePageElement(StatelessWidget widget) : super(widget);
 
   @override
-  StatelessWidget get widget => super.widget;
+  StatelessWidget get widget => super.widget as StatelessWidget;
 
   void increment() {
     markNeedsBuild();

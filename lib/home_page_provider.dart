@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class MyHomePageProviderStateless extends StatelessWidget {
-  String title;
-  MyHomePageProviderStateless({@required this.title});
-  MyHomePageProvider _provider;
+  final String title;
+  MyHomePageProviderStateless({required this.title});
+  MyHomePageProvider? _provider;
 
   @override
   Widget build(BuildContext context) {
@@ -12,11 +12,11 @@ class MyHomePageProviderStateless extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text(title),),
       body: Center(
-        child: Text("pressed ${_provider.index} times"),
+        child: Text("pressed ${_provider?.index} times"),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          _provider.increment();
+          _provider?.increment();
         },
       ),
     );
